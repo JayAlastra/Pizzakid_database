@@ -58,7 +58,6 @@ It also includes automated database triggers, relational constraints, and indexe
 | 🔄 **POS Sync Logging** | Maintains multi-terminal sync status and handles transaction transmission logs. |
 | 🛡️ **Audit & Notifications** | Records user action logs, low-stock reorder alerts, and manager authorization overrides. |
 
----
 
 
 
