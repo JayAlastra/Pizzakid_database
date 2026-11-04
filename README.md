@@ -1,4 +1,4 @@
-# 🍕 PizzaKid POS Database System (`pizza_db`)
+# 🍕 PizzaKid POS Database System
 
 ---
 
