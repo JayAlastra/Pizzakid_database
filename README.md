@@ -66,3 +66,21 @@ It also includes automated database triggers, relational constraints, and indexe
 * **XAMPP** – Local development environment.
 * **SQL** – Database queries, automated inventory triggers, and relational schemas.
 * **Draw.io** – ERD schema modeling and database relationship mapping.
+
+## 🚀 Getting Started
+
+Ready to explore the database? Follow these steps!
+
+### 1. Prepare the Environment
+
+* Install [XAMPP](https://www.apachefriends.org/).
+* Open XAMPP Control Panel.
+* Start Apache and MySQL.
+
+### 2. Open phpMyAdmin
+
+Visit:
+
+```text
+http://localhost/phpmyadmin
+
