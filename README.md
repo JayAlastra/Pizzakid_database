@@ -65,41 +65,7 @@ It also includes automated database triggers, relational constraints, and indexe
 ### Inventory Auto-Deduction Trigger (`trg_auto_deduct_inventory`)
 Whenever an order item is created, this trigger automatically reduces ingredient quantities from `inventory_items` based on recipe proportions and logs the movement in `stock_transactions`:
 
-```sql
-DELIMITER //
 
-CREATE TRIGGER trg_auto_deduct_inventory
-AFTER INSERT ON order_items
-FOR EACH ROW
-BEGIN
-    -- 1. Deduct ingredient stock based on recipe ratios
-    UPDATE inventory_items ii
-    INNER JOIN menu_item_ingredients mii 
-        ON ii.inventory_item_id = mii.inventory_item_id
-    SET ii.quantity_in_stock = ii.quantity_in_stock - (NEW.quantity * mii.quantity_required)
-    WHERE mii.menu_item_id = NEW.menu_item_id;
-
-    -- 2. Log deduction transaction
-    INSERT INTO stock_transactions (
-        inventory_item_id, 
-        user_id, 
-        transaction_type, 
-        quantity, 
-        remarks
-    )
-    SELECT 
-        mii.inventory_item_id,
-        NULL,
-        'POS Sale',
-        -(NEW.quantity * mii.quantity_required),
-        CONCAT('Auto-deducted for Order Item #', NEW.order_item_id)
-    FROM menu_item_ingredients mii
-    WHERE mii.menu_item_id = NEW.menu_item_id;
-END;
-//
-
-DELIMITER ;
-```
 
 ---
 
