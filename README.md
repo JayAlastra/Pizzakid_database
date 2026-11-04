@@ -60,10 +60,6 @@ It also includes automated database triggers, relational constraints, and indexe
 
 ---
 
-## ⚙️ Automated Triggers and Routines
-
-### Inventory Auto-Deduction Trigger (`trg_auto_deduct_inventory`)
-Whenever an order item is created, this trigger automatically reduces ingredient quantities from `inventory_items` based on recipe proportions and logs the movement in `stock_transactions`:
 
 
 
