@@ -84,3 +84,9 @@ Visit:
 ```text
 http://localhost/phpmyadmin
 
+### 3. Create the Database
+
+Create a new database named:
+
+```sql
+CREATE DATABASE pizza_db;
